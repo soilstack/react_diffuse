@@ -1,5 +1,7 @@
 # react_diffuse
+
 ###Reaction-Diffusion Experimentation
+
 
 ![vanilla reaction](https://raw.githubusercontent.com/soilstack/react_diffuse/master/example.png)
 
