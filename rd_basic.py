@@ -5,6 +5,8 @@ import matplotlib.animation as animation
 import numpy as np
 import datetime
 
+from PIL import Image
+
 # B's consume A's to make more B's
 Da = 1.0  #diffusion rate of reagent A
 Db = 0.5  #diffusion rate of reagent B
@@ -12,7 +14,7 @@ f = 0.055  # Feed rate of reagent A
 k = 0.062  #kill rate of reagent B (scaled so never less than feed rate)
 kernel = np.array([[0.05, 0.2, 0.05],[0.2,-1,0.2],[0.05, 0.2, 0.05]], )  #wavg diff between cell & surrounding cells
 
-ANIMATION_FRAMES = 200
+ANIMATION_FRAMES = 20
 ITER_PER_ANIMATION_FRAME = 50
 
 def display(g):
@@ -75,7 +77,9 @@ plt.show()
 Writer = animation.writers['ffmpeg']   #https://stackoverflow.com/a/60920880/3556757
 writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
 
-fn = datetime.datetime.now().strftime("rd_%Y_%b_%d_%H_%M_%S")
+fn = datetime.datetime.now().strftime("gallery\\rd_%Y_%b_%d_%H_%M_%S")
 ani.save(f"{fn}.mp4", writer=writer)
+
+Image.fromarray(display(grid)).convert("L").save(f"{fn}.png")
 
 print(f"done {fn}")
