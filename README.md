@@ -1,5 +1,6 @@
 # react_diffuse
 ###Reaction-Diffusion Experimentation
+![vanilla reaction](https://raw.githubusercontent.com/soilstack/react_diffuse/master/example.png)
 
 Was interested in the Coding Train's version of the Reaction-Diffusion model.  Coded in javascript, with a lot of 
 for-loops and iteration, I thought, "gee, I'll write somethign similar using Numpy matrix 
